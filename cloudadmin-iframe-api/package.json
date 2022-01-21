@@ -1,0 +1,34 @@
+{
+  "name": "cloudadmin-iframe-api",
+  "version": "1.0.0",
+  "description": "Cloudadmin website integration",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=13"
+  },
+  "dependencies": {
+    "penpal": "^6.2.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^7.25.0",
+    "eslint-plugin-import": "^2.25.4",
+    "ts-node": "^10.4.0",
+    "typedoc": "^0.22.11",
+    "typescript": "^4.5.5"
+  },
+  "files": [
+    "/build",
+    "!**/*.spec.*",
+    "!**/*.json",
+    "README.md"
+  ],
+  "author": "mo"
+}

@@ -1,0 +1,24 @@
+.app-sidebar {
+  margin: 0;
+  padding: 0;
+  min-width: 248px;
+  height: 100%;
+  background-color: #202626;
+  color: rgba(255,255,255,.7);
+  
+  li {
+    height: 61px;
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+
+    &.active {
+      background-color: #2e3737;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: black;      
+    }
+  }
+}

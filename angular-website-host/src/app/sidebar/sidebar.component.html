@@ -1,0 +1,6 @@
+<ul class="app-sidebar">
+  <li *ngFor="let p of pages" 
+    [class.active]="activeRoute === p.route"
+    (click)="onChange.emit(p.route)"
+    >{{p.title}}</li>
+</ul>

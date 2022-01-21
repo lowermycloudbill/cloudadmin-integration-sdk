@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  flex-direction: column;
+
+  .main {
+    display: flex;
+    height: 100%;
+  }
+
+  #cloudadmin-container {
+    width: 100%;
+  }
+}

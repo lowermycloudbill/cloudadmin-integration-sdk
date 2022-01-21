@@ -1,0 +1,5 @@
+build
+node_modules
+src/**.js
+*.log
+package-lock.json
