@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { CloudAdminWebsite } from '../../../cloudadmin-iframe-api/lib'
-import { CloudAdminWebsite } from '../assets/lib'
+// @ts-ignore
+import { CloudAdminWebsite } from '../assets/cloudadmin-iframe-api.min.js'
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
       cloudAdminApiUrl: 'https://development-tangoe-api.cloudadmin.io/v2',
       // cloudAdminApiUrl: 'https://development-api.cloudadmin.io/v2',
       clientId: 'H60617YmfoK9y0H9epBaSkdefdDNLwSj',
-      clientEmail: 'demo-integration@cloudadmin.io',
+      clientEmail: 'demo-wrapper@cloudadmin.io',
       partner: 'tangoe',
       debugMode: true
     })
