@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CloudAdminWebsite } from '../../../cloudadmin-iframe-api/build/dist'
+// import { CloudAdminWebsite } from '../../../cloudadmin-iframe-api/lib'
+import { CloudAdminWebsite } from '../assets/lib'
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.cloudAdminWebsite = CloudAdminWebsite({
-      cloudAdminWebsiteUrl: 'http://localhost:8001',
-      // cloudAdminApiUrl: 'https://development-tangoe-api.cloudadmin.io/v2',
-      cloudAdminApiUrl: 'https://development-api.cloudadmin.io/v2',
-      clientId: '****',
-      clientEmail: 'demo-wrapper@cloudadmin.io',
+      cloudAdminWebsiteUrl: 'https://tangoe-development.cloudadmin.io',
+      cloudAdminApiUrl: 'https://development-tangoe-api.cloudadmin.io/v2',
+      // cloudAdminApiUrl: 'https://development-api.cloudadmin.io/v2',
+      clientId: 'H60617YmfoK9y0H9epBaSkdefdDNLwSj',
+      clientEmail: 'demo-integration@cloudadmin.io',
       partner: 'tangoe',
       debugMode: true
     })
