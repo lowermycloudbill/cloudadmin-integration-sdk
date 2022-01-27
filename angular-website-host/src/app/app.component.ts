@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.cloudAdminWebsite = CloudAdminWebsite({
       cloudAdminWebsiteUrl: 'https://tangoe-development.cloudadmin.io',
+      // cloudAdminWebsiteUrl: 'http://localhost:8001',
       cloudAdminApiUrl: 'https://development-tangoe-api.cloudadmin.io/v2',
       // cloudAdminApiUrl: 'https://development-api.cloudadmin.io/v2',
       clientId: 'H60617YmfoK9y0H9epBaSkdefdDNLwSj',

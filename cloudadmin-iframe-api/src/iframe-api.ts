@@ -1,4 +1,5 @@
 import { connectToChild } from "penpal";
+
 import { CloudAdminConfig, CloudAdminIframeApi } from './types'
 
 export const createIframe = (config: CloudAdminConfig, accessToken: string) => {
