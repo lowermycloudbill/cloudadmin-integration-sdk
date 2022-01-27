@@ -65,7 +65,12 @@ The library has only one dependency [Penpal](https://github.com/Aaronius/penpal)
         debugMode: boolean
     ```
 
-3. create a HTML element container for iframe, call createWebsite and getAvailablePages methods
+3. create a HTML element container for iframe
+   ```html
+   <div id="cloudadmin-container"></div>
+   ```
+
+4. create an iframe and get available pages
     ```javascript
         cloudAdminWebsite.createWebsite().then(() => {
           cloudAdminPages = cloudAdminWebsite.getAvailablePages()
@@ -92,7 +97,7 @@ The library has only one dependency [Penpal](https://github.com/Aaronius/penpal)
        group: string   
      ```
    
-4. for switching pages without reloading whole app in the iframe use **setRoute** method:
+5. for switching pages without reloading whole app in the iframe use **setRoute** method:
     ```javascript
         cloudAdminWebsite.setRoute(route)
     ```
