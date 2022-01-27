@@ -18,51 +18,49 @@ The library has only one dependency [Penpal](https://github.com/Aaronius/penpal)
 
 1. Import library
     ```javascript
-        import { CloudAdminWebsite } from './cloudadmin-iframe-api.min.js'
+    import { CloudAdminWebsite } from './cloudadmin-iframe-api.min.js'
     ````
 
 2. provide required config options
 
     ```javascript
-        const cloudAdminWebsite = CloudAdminWebsite({
-          /**
-           * points to website (iframe content)
-           */
-          cloudAdminWebsiteUrl: 'https://partner-development.cloudadmin.io',
-            
-          /**
-           * points to CloudAdmin API for access token requests
-           */
-          cloudAdminApiUrl: 'https://development-partner-api.cloudadmin.io/v2',
+      /**
+       * points to website (iframe content)
+       */
+      cloudAdminWebsiteUrl: string
     
-          /**
-           * indicates client id in CloudAdmin system
-           */
-          clientId: 'H60617YmfoK9y0H9epBaSkdefdDNLwSj',
+      /**
+       * points to CloudAdmin API for access token requests
+       */
+      cloudAdminApiUrl: string
     
-          /**
-           * indicates client email in CloudAdmin system
-           */
-          clientEmail: 'demo-wrapper@cloudadmin.io',
+      /**
+       * indicates client id in CloudAdmin system
+       */
+      clientId: string
     
-          /**
-           * partner's tag
-           */
-          partner: 'partner1'
-        })    
+      /**
+       * indicates client email in CloudAdmin system
+       */
+      clientEmail: string
+    
+      /**
+       * partner's tag
+       */
+      partner: string
     ```
     
     optional config options:
     ```javascript
-        /**
-         * id of iframe HTML element container, default is 'cloudadmin-container'
-         */
-        websiteContainerId: string
+      /**
+       * id of iframe HTML element container, default is 'cloudadmin-container'
+       */
+      websiteContainerId: string
     
-        /**
-         * enables console debug, false by default
-         */
-        debugMode: boolean
+      /**
+       * enables console debug, false by default
+       */
+      debugMode: boolean
     ```
 
 3. create a HTML element container for iframe
@@ -72,9 +70,9 @@ The library has only one dependency [Penpal](https://github.com/Aaronius/penpal)
 
 4. create an iframe and get available pages
     ```javascript
-        cloudAdminWebsite.createWebsite().then(() => {
-          cloudAdminPages = cloudAdminWebsite.getAvailablePages()
-        })
+    cloudAdminWebsite.createWebsite().then(() => {
+      cloudAdminPages = cloudAdminWebsite.getAvailablePages()
+    })
     ```
    * **createWebsite** process access token requests and creates an iframe in container pointed in config
 
@@ -99,5 +97,5 @@ The library has only one dependency [Penpal](https://github.com/Aaronius/penpal)
    
 5. for switching pages without reloading whole app in the iframe use **setRoute** method:
     ```javascript
-        cloudAdminWebsite.setRoute(route)
+    cloudAdminWebsite.setRoute(route)
     ```
