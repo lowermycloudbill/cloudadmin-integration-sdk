@@ -11,8 +11,7 @@ export const createIframe = (config: CloudAdminConfig, accessToken: string) => {
   iframe.width = "100%"
   iframe.height = "100%"
   iframe.setAttribute("style", "border: 0")
-  // TODO: add connecting-to-iframe-host page instead of admin
-  iframe.src = `${config.cloudAdminWebsiteUrl}/admin?access_token=${accessToken}`
+  iframe.src = `${config.cloudAdminWebsiteUrl}/partner/gateway?access_token=${accessToken}`
   return iframe
 }
 
