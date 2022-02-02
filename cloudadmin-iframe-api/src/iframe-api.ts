@@ -11,7 +11,7 @@ export const createIframe = (config: CloudAdminConfig, accessToken: string) => {
   iframe.width = "100%"
   iframe.height = "100%"
   iframe.setAttribute("style", "border: 0")
-  iframe.src = `${config.cloudAdminWebsiteUrl}/partner/gateway?access_token=${accessToken}`
+  iframe.src = `${config.cloudAdminWebsiteUrl}/gateway/partner?access_token=${accessToken}`
   return iframe
 }
 
