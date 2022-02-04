@@ -30,6 +30,11 @@ export type CloudAdminConfig = {
   partner: string,
 
   /**
+  * page opened on start
+  */
+  landingPage?: string,
+
+  /**
    * enables console debug, false by default
    */
   debugMode?: boolean

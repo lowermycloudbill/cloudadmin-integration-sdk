@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
       clientId: 'H60617YmfoK9y0H9epBaSkdefdDNLwSj',
       clientEmail: 'demo-wrapper@cloudadmin.io',
       partner: 'tangoe',
+      landingPage: '/tangoe/integration',
       debugMode: true
     })
 
