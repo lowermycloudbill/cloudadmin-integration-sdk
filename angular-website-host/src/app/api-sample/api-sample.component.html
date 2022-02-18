@@ -1,0 +1,8 @@
+<div class="main">
+  <app-sidebar [pages]="cloudAdminPages | async"
+    [activeRoute]="activeRoute"
+    (onChange)="setRoute($event)"
+  ></app-sidebar>
+  <div id="cloudadmin-container"></div>
+</div>
+

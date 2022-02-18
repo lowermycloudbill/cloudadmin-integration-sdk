@@ -1,9 +1,9 @@
 <div class="app">
-  <div class="main">
-    <app-sidebar [pages]="cloudAdminPages | async"
-      [activeRoute]="activeRoute"
-      (onChange)="setRoute($event)"
-    ></app-sidebar>
-    <div id="cloudadmin-container"></div>
-  </div>
+  <nav class="navbar">
+    <a class="nav-item" routerLinkActive="active" routerLink="iframe-api">iframe api</a>
+    <a class="nav-item" routerLinkActive="active" routerLink="iframe-api-multitenant">iframe api multi tenant</a>
+    <a class="nav-item" routerLinkActive="active" routerLink="raw-iframe">raw iframe</a>
+    <a class="nav-item" routerLinkActive="active" routerLink="raw-iframe-multitenant">raw iframe multi tenant</a>
+  </nav>
+  <router-outlet></router-outlet>
 </div>

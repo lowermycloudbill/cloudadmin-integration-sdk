@@ -1,13 +1,13 @@
-.app {
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 
-  .main {
-    display: flex;
-    height: 100%;
-  }
-
-  #cloudadmin-container {
+  .nav-item {
     width: 100%;
+    text-align: center;
+    padding: 5px;
+    &.active {
+      color: red
+    }
   }
 }

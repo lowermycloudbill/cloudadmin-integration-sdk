@@ -24,6 +24,7 @@ export const CloudAdminWebsite = (config: CloudAdminConfig) => {
   return {
     createWebsite,
     getAvailablePages,
-    setRoute
+    setRoute,
+    getAccessToken: () => getAccessToken(config)
   }
 }
