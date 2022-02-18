@@ -13,8 +13,8 @@ import {ActivatedRoute} from "@angular/router";
 export class IframeSampleComponent implements OnInit {
 
   config: CloudAdminConfig = {
-    // cloudAdminWebsiteUrl: 'https://iframe-development.cloudadmin.io',
-    cloudAdminWebsiteUrl: 'http://localhost:8001',
+    cloudAdminWebsiteUrl: 'https://iframe-development.cloudadmin.io',
+    // cloudAdminWebsiteUrl: 'http://localhost:8001',
     cloudAdminApiUrl: 'https://development-tangoe-api.cloudadmin.io/v2',
     clientId: 'H60617YmfoK9y0H9epBaSkdefdDNLwSj',
     // clientEmail: 'demo-wrapper@cloudadmin.io',
