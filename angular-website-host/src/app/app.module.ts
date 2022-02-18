@@ -3,14 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ApiSampleComponent } from './api-sample/api-sample.component';
+import { IframeSampleComponent } from './iframe-sample/iframe-sample.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent
+    SidebarComponent,
+    ApiSampleComponent,
+    IframeSampleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

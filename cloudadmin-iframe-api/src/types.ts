@@ -54,10 +54,12 @@ export type CloudAdminPage = {
       /**
        * page group, related to cloud provider (aws | azure | gcp)
        */
-      group: string
+      group?: string
 }
 
 export type CloudAdminIframeApi = {
+  createWebsite(): void,
   getAvailablePages(partner: string): CloudAdminPage[],
   setRoute(route: string): void
+  getAccessToken(): void
 }
