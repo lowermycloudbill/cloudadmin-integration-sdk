@@ -12,7 +12,8 @@ import { CloudAdminWebsite, CloudAdminConfig, CloudAdminIframeApi } from '../../
 export class ApiSampleComponent implements OnInit {
 
   config: CloudAdminConfig = {
-    cloudAdminWebsiteUrl: 'https://iframe-development.cloudadmin.io',
+    cloudAdminWebsiteUrl: 'https://tangoe-development.cloudadmin.io',
+    // cloudAdminWebsiteUrl: 'https://iframe-development.cloudadmin.io',
     // cloudAdminWebsiteUrl: 'http://localhost:8001',
     cloudAdminApiUrl: 'https://development-tangoe-api.cloudadmin.io/v2',
     // cloudAdminApiUrl: 'https://development-api.cloudadmin.io/v2',
