@@ -1,8 +1,5 @@
 <div class="main">
-  <app-sidebar [pages]="cloudAdminPages | async"
-    [activeRoute]="activeRoute"
-    (onChange)="setRoute($event)"
-  ></app-sidebar>
+  <app-integration [apiConfig]="config" (onAccessTokenChange)="onAccessTokenChange($event)"></app-integration>
   <div id="cloudadmin-container"></div>
 </div>
 

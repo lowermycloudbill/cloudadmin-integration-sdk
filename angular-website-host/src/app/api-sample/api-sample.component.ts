@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 // @ts-ignore
 import { CloudAdminWebsite, CloudAdminConfig, CloudAdminIframeApi } from '../../assets/cloudadmin-iframe-api.min.js'
+import {ApiBackendService} from "../api-backend.service";
+import {IntegrationProperty} from "../integration/types";
 // import { CloudAdminWebsite, CloudAdminConfig } from '../../../../cloudadmin-iframe-api/src'
 
 @Component({
+  providers: [
+    ApiBackendService,
+  ],
   selector: 'app-api-sample',
   templateUrl: './api-sample.component.html',
   styleUrls: ['./api-sample.component.scss']
@@ -25,11 +30,9 @@ export class ApiSampleComponent implements OnInit {
     debugMode: true
   }
 
-  cloudAdminPages?: Promise<any>
-  activeRoute: string = ''
   private cloudAdminWebsite: CloudAdminIframeApi
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private apiBackend: ApiBackendService, private route: ActivatedRoute) {
     if(route.snapshot.url[0].path.endsWith('multitenant')) {
       this.config.clientEmail = 'demo-wrapper@cloudadmin.io'
     }
@@ -37,15 +40,9 @@ export class ApiSampleComponent implements OnInit {
 
   ngOnInit(): void {
     this.cloudAdminWebsite = CloudAdminWebsite(this.config)
-
-    this.cloudAdminWebsite.createWebsite().then(() => {
-      this.cloudAdminPages = this.cloudAdminWebsite.getAvailablePages()
-    })
-
   }
 
-  setRoute(route: string) {
-    this.activeRoute = route
-    this.cloudAdminWebsite.setRoute(route)
+  onAccessTokenChange({token, tenant= ''}: IntegrationProperty): void {
+    this.cloudAdminWebsite.createWebsite(token, tenant)
   }
 }

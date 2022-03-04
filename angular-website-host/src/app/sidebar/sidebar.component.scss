@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   min-width: 248px;
-  height: 100%;
+  height: 100vh;
   background-color: #202626;
   color: rgba(255,255,255,.7);
-  
+
   li {
     height: 61px;
     padding-left: 40px;
@@ -18,7 +18,7 @@
 
     &:hover {
       cursor: pointer;
-      background-color: black;      
+      background-color: black;
     }
   }
 }
