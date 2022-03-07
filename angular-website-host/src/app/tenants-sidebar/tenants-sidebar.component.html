@@ -1,0 +1,14 @@
+<div>
+  <div class="tenants-sidebar__trigger-area" (mouseenter)="onShowTenants()"></div>
+  <div class="tenants-sidebar hidden" (mouseleave)="onHideTenants()">
+    <h3>Current Tenant:</h3>
+    <p><strong>{{tenantName}}</strong></p>
+    <div
+      *ngFor="let p of pages"
+      class="tenants-sidebar__tenant"
+      [class.active]="p.id === tenantId"
+      (click)="onTenantChange.emit(p.id)"
+      >{{p.name}}
+    </div>
+  </div>
+</div>

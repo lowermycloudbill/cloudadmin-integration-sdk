@@ -1,0 +1,45 @@
+.tenants-sidebar__trigger-area {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 50px;
+  z-index: 9;
+}
+
+.tenants-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 9;
+  padding: 24px;
+  overflow: auto;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  width: 300px;
+  border-width: 0;
+  background-color: #202626;
+  color: rgba(255, 255, 255, 0.7);
+
+  &.hidden {
+    right: -1000px;
+  }
+
+  &__tenant {
+    margin-bottom: 16px;
+    padding: 10px 0;
+
+    &:hover:not(.active) {
+      pointer-events: all;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    &.active {
+      display: none;
+    }
+  }
+}

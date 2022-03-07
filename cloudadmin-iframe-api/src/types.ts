@@ -61,5 +61,4 @@ export type CloudAdminIframeApi = {
   createWebsite(): void,
   getAvailablePages(partner: string): CloudAdminPage[],
   setRoute(route: string): void
-  getAccessToken(): void
 }

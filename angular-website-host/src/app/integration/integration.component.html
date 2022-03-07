@@ -1,0 +1,14 @@
+<div class="integration">
+  <app-sidebar
+    [pages]="cloudAdminPages"
+    [activeRoute]="activeRoute"
+    (onChange)="setRoute($event)"
+  ></app-sidebar>
+  <tenants-sidebar
+    *ngIf="tenantsPages.length > 0"
+    [pages]="tenantsPages"
+    [tenantId]="currentTenantId"
+    [tenantName]="currentTenantName"
+    (onTenantChange)="onTenantChange($event)"
+  ></tenants-sidebar>
+</div>

@@ -1,8 +1,5 @@
 <div class="main">
-  <app-sidebar [pages]="cloudAdminPages"
-    [activeRoute]="activeRoute"
-    (onChange)="setRoute($event)"
-  ></app-sidebar>
+  <app-integration [apiConfig]="config" (onAccessTokenChange)="onAccessTokenChange($event)"></app-integration>
   <div id="cloudadmin-container" *ngIf="iframeSrc">
     <iframe [src]="iframeSrc" width="100%" height="100%"></iframe>
   </div>

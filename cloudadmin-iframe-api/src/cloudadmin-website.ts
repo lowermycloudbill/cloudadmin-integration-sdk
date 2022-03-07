@@ -1,15 +1,13 @@
 import { AsyncMethodReturns } from 'penpal'
 
 import { connectIframe, createIframe } from './iframe-api'
-import { getAccessToken } from './rest-api'
 import { CloudAdminConfig, CloudAdminIframeApi } from './types'
 
 export const CloudAdminWebsite = (config: CloudAdminConfig) => {
   let connection: AsyncMethodReturns<CloudAdminIframeApi>
 
-  const createWebsite = async () => {
-    const accessToken = await getAccessToken(config)
-    const iframe = createIframe(config, accessToken)
+  const createWebsite = async (accessToken: string, tenant: string = '') => {
+    const iframe = createIframe(config, accessToken, tenant)
     connection = await connectIframe(config, iframe)
   }
 
@@ -25,6 +23,5 @@ export const CloudAdminWebsite = (config: CloudAdminConfig) => {
     createWebsite,
     getAvailablePages,
     setRoute,
-    getAccessToken: () => getAccessToken(config)
   }
 }
