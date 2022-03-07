@@ -5,6 +5,6 @@ export type Tenant = {
 }
 
 export type IntegrationProperty = {
-  token: string,
+  token: string | undefined,
   tenant?: string
 }

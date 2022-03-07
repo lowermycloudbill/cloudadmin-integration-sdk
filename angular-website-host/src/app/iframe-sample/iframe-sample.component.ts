@@ -4,6 +4,7 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import { CloudAdminWebsite, CloudAdminConfig, CloudAdminIframeApi, CloudAdminPage } from '../../assets/cloudadmin-iframe-api.min.js'
 import {ActivatedRoute} from "@angular/router";
 import {IntegrationProperty} from "../integration/types";
+import {CookieService} from "ngx-cookie-service";
 // import { CloudAdminWebsite, CloudAdminConfig } from '../../../../cloudadmin-iframe-api/src'
 
 @Component({
@@ -34,13 +35,15 @@ export class IframeSampleComponent implements OnInit {
 
   private cloudAdminWebsite: CloudAdminIframeApi
 
-  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute) {
+  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute, private cookie: CookieService) {
     if(route.snapshot.url[0].path.endsWith('multitenant')) {
       this.config.clientEmail = 'demo-wrapper@cloudadmin.io'
     }
+    this.cookie.delete('accessToken')
   }
 
   ngOnInit(): void {
+
     this.cloudAdminWebsite = CloudAdminWebsite(this.config)
   }
 

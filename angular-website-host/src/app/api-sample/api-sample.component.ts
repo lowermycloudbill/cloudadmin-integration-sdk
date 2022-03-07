@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CloudAdminWebsite, CloudAdminConfig, CloudAdminIframeApi } from '../../assets/cloudadmin-iframe-api.min.js'
 import {ApiBackendService} from "../api-backend.service";
 import {IntegrationProperty} from "../integration/types";
+import {CookieService} from "ngx-cookie-service";
 // import { CloudAdminWebsite, CloudAdminConfig } from '../../../../cloudadmin-iframe-api/src'
 
 @Component({
@@ -32,10 +33,11 @@ export class ApiSampleComponent implements OnInit {
 
   private cloudAdminWebsite: CloudAdminIframeApi
 
-  constructor(private apiBackend: ApiBackendService, private route: ActivatedRoute) {
+  constructor(private apiBackend: ApiBackendService, private route: ActivatedRoute, private cookie: CookieService) {
     if(route.snapshot.url[0].path.endsWith('multitenant')) {
       this.config.clientEmail = 'demo-wrapper@cloudadmin.io'
     }
+    this.cookie.delete('accessToken')
   }
 
   ngOnInit(): void {

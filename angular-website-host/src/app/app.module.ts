@@ -8,6 +8,9 @@ import { ApiSampleComponent } from './api-sample/api-sample.component';
 import { IframeSampleComponent } from './iframe-sample/iframe-sample.component';
 import {IntegrationComponent} from "./integration/integration.component";
 import {TenantsSidebarComponent} from "./tenants-sidebar/tenants-sidebar.component";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AppInterceptorService} from "./app-interceptor.service";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -20,9 +23,16 @@ import {TenantsSidebarComponent} from "./tenants-sidebar/tenants-sidebar.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    CookieService,
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AppInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

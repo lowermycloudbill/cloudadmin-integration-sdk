@@ -4,6 +4,7 @@ import {ApiBackendService} from "../api-backend.service";
 import { CloudAdminConfig, CloudAdminPage } from '../../assets/cloudadmin-iframe-api.js'
 import {TenantPage} from "../tenants-sidebar/types";
 import {IntegrationProperty, Tenant} from "./types";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   providers: [
@@ -27,45 +28,47 @@ export class IntegrationComponent implements OnInit {
   @Input('apiConfig') config: CloudAdminConfig
   @Output('onAccessTokenChange') onAccessTokenChange = new EventEmitter<IntegrationProperty>();
 
-  constructor(private apiBackend: ApiBackendService) { }
+  constructor(private apiBackend: ApiBackendService, private cookie: CookieService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.hostAccessToken = await this.apiBackend.getAccessToken(this.config);
+  ngOnInit(): void {
+    this.apiBackend.getAccessToken(this.config).subscribe(res => {
+      this.hostAccessToken = res.access_token;
+      this.cookie.set('accessToken', this.hostAccessToken);
+      this.apiBackend.getTenantsList(this.config).subscribe(res => {
+        this.tenants = res
+        if (this.tenants.length > 0) {
+          this.cloudAdminPages.push({
+            title: 'Multi tenant',
+            route: '/tangoe/integration',
+          })
+          const activeTenant = this.tenants.filter(tenant => tenant.selected)[0]
+          this.onTenantChange(activeTenant.id);
+        } else {
+          this.cloudAdminPages.push({
+            title: 'IaaS Optimization',
+            route: '/tangoe/integration',
+          })
 
-    if (this.hostAccessToken) {
-      this.tenants = await this.apiBackend.getTenantsList(this.config, this.hostAccessToken)
-
-      if (this.tenants.length > 0) {
-        this.cloudAdminPages.push({
-          title: 'Multi tenant',
-          route: '/tangoe/integration',
+          this.onAccessTokenChange.emit({'token': this.hostAccessToken});
+        }
+        this.activeRoute = '/tangoe/integration';
         })
-        const activeTenant = this.tenants.filter(tenant => tenant.selected)[0]
-        await this.onTenantChange(activeTenant.id);
-      } else {
-        this.cloudAdminPages.push({
-          title: 'IaaS Optimization',
-          route: '/tangoe/integration',
-        })
-
-        this.onAccessTokenChange.emit({'token': this.hostAccessToken});
-      }
-      this.activeRoute = '/tangoe/integration';
-    }
+    });
   }
 
   setRoute(route: string) {
     this.activeRoute = route
   }
 
-  async onTenantChange(id: string) {
+  onTenantChange(id: string) {
     if (this.hostAccessToken) {
-      const response = await this.apiBackend.getTenantDemo(this.config, id, this.hostAccessToken);
-      this.tenants = response.tenants
+      this.apiBackend.getTenantDemo(this.config, id).subscribe(res => {
+      this.tenants = res.tenants
       this.currentTenantName = this.tenants.filter(item => item.id === id)[0].short_name
       this.currentTenantId = id
       this.updateTenantPages();
       this.onAccessTokenChange.emit({ 'token': this.hostAccessToken, 'tenant': this.currentTenantId})
+      });
     }
   }
 
