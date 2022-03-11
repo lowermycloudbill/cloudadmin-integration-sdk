@@ -15,8 +15,8 @@ import {CookieService} from "ngx-cookie-service";
 export class IframeSampleComponent implements OnInit {
 
   config: CloudAdminConfig = {
-    cloudAdminWebsiteUrl: 'https://tangoe-development.cloudadmin.io',
-    // cloudAdminWebsiteUrl: 'https://iframe-development.cloudadmin.io',
+    // cloudAdminWebsiteUrl: 'https://tangoe-development.cloudadmin.io',
+    cloudAdminWebsiteUrl: 'https://iframe-development.cloudadmin.io',
     // cloudAdminWebsiteUrl: 'http://localhost:8001',
     cloudAdminApiUrl: 'https://development-tangoe-api.cloudadmin.io/v2',
     clientId: 'H60617YmfoK9y0H9epBaSkdefdDNLwSj',
